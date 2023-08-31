@@ -8,10 +8,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.Community.R;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import Authentication.Authentication;
 import Authentication.Session_Management;
@@ -25,7 +25,7 @@ public class UserProfile extends AppCompatActivity {
     private LinearLayout cardView, cardView2;
     private Session_Management sessionManager;
     private DataBaseHelper dbHandler;
-    private AlertDialog.Builder alert;
+    private MaterialAlertDialogBuilder alert;
     private String userEmail;
 
     @Override
@@ -64,7 +64,7 @@ public class UserProfile extends AppCompatActivity {
 
     private void setupLogoutCardView() {
         cardView = findViewById(R.id.logout_accountId);
-        alert = new AlertDialog.Builder(this);
+        alert = new MaterialAlertDialogBuilder(this, R.style.AlertDialogTheme);
 
         cardView.setOnClickListener(view -> {
             alert.setMessage("Are you sure,\nYou wanted to LogOut.").setTitle("Alert Dialog");
@@ -91,7 +91,7 @@ public class UserProfile extends AppCompatActivity {
 
     private void setupDeleteAccount() {
         cardView2 = findViewById(R.id.delete_accountId);
-        alert = new AlertDialog.Builder(this);
+        alert = new MaterialAlertDialogBuilder(this, R.style.AlertDialogTheme);
 
         cardView2.setOnClickListener(view -> {
             alert.setMessage("Are you sure,\nYou wanted to Delete Your Account.").setTitle("Alert Dialog");
