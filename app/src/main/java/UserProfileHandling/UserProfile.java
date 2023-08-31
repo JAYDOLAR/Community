@@ -3,6 +3,7 @@ package UserProfileHandling;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -19,7 +20,7 @@ import DataBaseHandling.FetchDataModal;
 
 public class UserProfile extends AppCompatActivity {
 
-    private ImageView imageView;
+    private ImageView imageView, settings;
     private TextView userNameTextView, userEmailTextView;
     private LinearLayout cardView, cardView2;
     private Session_Management sessionManager;
@@ -36,10 +37,18 @@ public class UserProfile extends AppCompatActivity {
         dbHandler = new DataBaseHelper(this);
 
         imageView = findViewById(R.id.backTo);
+        settings = findViewById(R.id.settings);
         userNameTextView = findViewById(R.id.userName);
         userEmailTextView = findViewById(R.id.userId);
 
         imageView.setOnClickListener(view -> finish());
+
+        settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(UserProfile.this, AppSettings.class));
+            }
+        });
 
         userEmail = sessionManager.getUserEmail();
         if (userEmail != null) {

@@ -17,6 +17,9 @@
         android:theme="@style/Theme.Community"
         tools:targetApi="31">
         <activity
+            android:name="UserProfileHandling.AppSettings"
+            android:exported="false" />
+        <activity
             android:name="UserProfileHandling.UserProfile"
             android:exported="false" />
         <activity
