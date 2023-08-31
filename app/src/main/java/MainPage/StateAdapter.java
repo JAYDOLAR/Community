@@ -1,6 +1,7 @@
 package MainPage;
 
 import static MainPage.Places.Constant.placesList;
+import static MainPage.Places.Constant.statename;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -47,6 +48,7 @@ public class StateAdapter extends RecyclerView.Adapter<StateAdapter.ViewHolder> 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                statename = stateModuleList.get(position).getName();
                 placesList = stateModuleList.get(position).getPlaces();
                 context.startActivity(new Intent(context, PlacesDetail.class));
             }

@@ -2,8 +2,10 @@ package MainPage.Places;
 
 
 import static MainPage.Places.Constant.placesList;
+import static MainPage.Places.Constant.statename;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
@@ -23,15 +25,18 @@ public class PlacesDetail extends AppCompatActivity {
     ArrayList<Place> placeArray;
     PlaceDetailAdapter recycleAdapter;
     SwipeRefreshLayout swipeRefreshLayout;
+    TextView textView;
     RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_places_detail);
-        recyclerView  = findViewById(R.id.list_columns);
+        recyclerView = findViewById(R.id.list_columns);
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout1);
         recyclerView.setLayoutManager(new LinearLayoutManager(PlacesDetail.this));
         recycleAdapter = new PlaceDetailAdapter(PlacesDetail.this, placesList);
+        textView = findViewById(R.id.currentStateName);
+        textView.setText(statename);
         recyclerView.setAdapter(recycleAdapter);
         placeArray = new ArrayList<>(placesList);
         search();
@@ -40,7 +45,7 @@ public class PlacesDetail extends AppCompatActivity {
             @Override
             public void onRefresh() {
                 swipeRefreshLayout.setRefreshing(false);
-                recyclerView  = findViewById(R.id.list_columns);
+                recyclerView = findViewById(R.id.list_columns);
                 swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout1);
                 recyclerView.setLayoutManager(new LinearLayoutManager(PlacesDetail.this));
                 recycleAdapter = new PlaceDetailAdapter(PlacesDetail.this, placesList);
