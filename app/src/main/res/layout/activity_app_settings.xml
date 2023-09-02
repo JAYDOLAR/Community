@@ -9,8 +9,9 @@
     <RelativeLayout
         android:id="@+id/appBarLayout2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rounded_view"
+        android:layout_height="@dimen/_45sdp"
+        android:background="@drawable/rounded_top_corners"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -19,7 +20,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"
             android:layout_marginEnd="5dp"
             android:layout_marginBottom="5dp">
 
@@ -32,6 +32,7 @@
                 android:src="@drawable/round_arrow_back_ios_new_24"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                android:importantForAccessibility="no"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -39,9 +40,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Settings"
-                android:textColor="@color/white"
-                android:textSize="18sp"
+                android:text="@string/settings"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/_17ssp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -93,6 +94,7 @@
                         android:layout_marginStart="30dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
+                        android:importantForAccessibility="no"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageView
@@ -105,6 +107,7 @@
                         android:layout_marginBottom="5dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        android:importantForAccessibility="no"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
@@ -113,7 +116,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginStart="20dp"
-                        android:text="Favourite"
+                        android:text="@string/favourite"
                         android:textSize="20sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/favourite_icon"
@@ -145,6 +148,7 @@
                         android:layout_marginStart="30dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
+                        android:importantForAccessibility="no"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageView
@@ -157,6 +161,7 @@
                         android:layout_marginBottom="5dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        android:importantForAccessibility="no"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
@@ -165,7 +170,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginStart="20dp"
-                        android:text="Log Out"
+                        android:text="@string/log_out"
                         android:textSize="20sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/logout_icon"
@@ -198,6 +203,7 @@
                         android:layout_marginStart="30dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
+                        android:importantForAccessibility="no"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageView
@@ -210,6 +216,7 @@
                         android:layout_marginBottom="5dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        android:importantForAccessibility="no"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
@@ -218,7 +225,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginStart="20dp"
-                        android:text="Delete Account"
+                        android:text="@string/delete_account"
                         android:textSize="20sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/delete_icon"
@@ -227,4 +234,18 @@
             </LinearLayout>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="top"
+        app:constraint_referenced_ids="appBarLayout2" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="left"
+        app:constraint_referenced_ids="appBarLayout2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
