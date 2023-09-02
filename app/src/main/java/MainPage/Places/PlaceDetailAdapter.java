@@ -1,20 +1,30 @@
 package MainPage.Places;
 
+import android.animation.AnimatorInflater;
+import android.animation.AnimatorSet;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.transition.ChangeBounds;
+import androidx.transition.Fade;
+import androidx.transition.TransitionManager;
+import androidx.transition.TransitionSet;
 
 import com.bumptech.glide.Glide;
 import com.example.Community.R;
+import com.google.android.material.card.MaterialCardView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,28 +63,46 @@ public class PlaceDetailAdapter extends RecyclerView.Adapter<PlaceDetailAdapter.
         });
 */
         if (placeList.get(position).getMapUrl() != null && !placeList.get(position).getMapUrl().isEmpty()) {
-            holder.placeMap.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    int clickedPosition = holder.getAdapterPosition();
-                    if (clickedPosition != RecyclerView.NO_POSITION) {
-                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(placeList.get(clickedPosition).getMapUrl()));
-                        context.startActivity(intent);
-                    }
+            holder.placeMap.setOnClickListener(view -> {
+                int clickedPosition = holder.getAdapterPosition();
+                if (clickedPosition != RecyclerView.NO_POSITION) {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(placeList.get(clickedPosition).getMapUrl()));
+                    context.startActivity(intent);
                 }
             });
         } else {
-            holder.placeMap.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Toast.makeText(context, "No map link available for this place.", Toast.LENGTH_SHORT).show();
-                }
-            });
+            holder.placeMap.setOnClickListener(view -> Toast.makeText(context, "No map link available for this place.", Toast.LENGTH_SHORT).show());
         }
         holder.placeName.setText(placeList.get(position).getName());
         holder.placeCategory.setText(placeList.get(position).getCategory());
         holder.placeRating.setText(placeList.get(position).getRating());
         holder.placeDescription.setText(placeList.get(position).getDescription());
+        holder.ratingBar.setRating(Float.parseFloat(placeList.get(position).getRating()));
+
+        AnimatorSet iconRotation;
+        final boolean[] isExpanded = {false};
+
+        iconRotation = (AnimatorSet) AnimatorInflater.loadAnimator(context, R.animator.icon_transition);
+        holder.expandCollapseIcon.setOnClickListener(view -> {
+            TransitionSet transitionSet = new TransitionSet();
+            transitionSet.addTransition(new Fade().setDuration(400));
+            transitionSet.addTransition(new ChangeBounds().setDuration(400));
+
+
+            TransitionManager.beginDelayedTransition((ViewGroup) holder.cardView.getParent(), transitionSet);
+            if (isExpanded[0]) {
+                // Collapse the card
+                holder.expandableContent.setVisibility(View.GONE);
+                iconRotation.setTarget(holder.expandCollapseIcon);
+                iconRotation.start();
+            } else {
+                // Expand the card
+                holder.expandableContent.setVisibility(View.VISIBLE);
+                iconRotation.setTarget(holder.expandCollapseIcon);
+                iconRotation.reverse();
+            }
+            isExpanded[0] = !isExpanded[0];
+        });
 
     }
 
@@ -88,10 +116,19 @@ public class PlaceDetailAdapter extends RecyclerView.Adapter<PlaceDetailAdapter.
         notifyDataSetChanged();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
+    public static class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView placeImg;
         TextView placeName, placeCategory, placeRating, placeDescription, placeMap;
+
+        Button expandCollapseIcon;
+
+        MaterialCardView cardView;
+
+        LinearLayout expandableContent;
+
+        RatingBar ratingBar;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             placeImg = itemView.findViewById(R.id.PlaceImg);
@@ -101,6 +138,11 @@ public class PlaceDetailAdapter extends RecyclerView.Adapter<PlaceDetailAdapter.
             placeRating = itemView.findViewById(R.id.PlaceRating);
             placeDescription = itemView.findViewById(R.id.PlaceDescription);
             placeMap = itemView.findViewById(R.id.PlaceMap);
+
+            expandCollapseIcon = itemView.findViewById(R.id.expandCollapseIcon);
+            cardView = itemView.findViewById(R.id.cardView);
+            expandableContent = itemView.findViewById(R.id.placeAllDetail);
+            ratingBar = itemView.findViewById(R.id.ratingBar);
         }
     }
 }

@@ -64,7 +64,7 @@ public class UserProfile extends AppCompatActivity {
 
     private void setupLogoutCardView() {
         cardView = findViewById(R.id.logout_accountId);
-        alert = new MaterialAlertDialogBuilder(this, R.style.AlertDialogTheme);
+        alert = new MaterialAlertDialogBuilder(this);
 
         cardView.setOnClickListener(view -> {
             alert.setMessage("Are you sure,\nYou wanted to LogOut.").setTitle("Alert Dialog");
@@ -91,7 +91,7 @@ public class UserProfile extends AppCompatActivity {
 
     private void setupDeleteAccount() {
         cardView2 = findViewById(R.id.delete_accountId);
-        alert = new MaterialAlertDialogBuilder(this, R.style.AlertDialogTheme);
+        alert = new MaterialAlertDialogBuilder(this);
 
         cardView2.setOnClickListener(view -> {
             alert.setMessage("Are you sure,\nYou wanted to Delete Your Account.").setTitle("Alert Dialog");
