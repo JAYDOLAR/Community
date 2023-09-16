@@ -29,10 +29,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_marginStart="15dp"
+                android:importantForAccessibility="no"
                 android:src="@drawable/round_arrow_back_ios_new_24"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:importantForAccessibility="no"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -86,18 +86,6 @@
                     android:layout_marginBottom="10dp">
 
                     <ImageView
-                        android:id="@+id/favourite_icon"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_gravity="start"
-                        android:layout_margin="5dp"
-                        android:layout_marginStart="30dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        android:importantForAccessibility="no"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <ImageView
                         android:id="@+id/favourite_open_icon"
                         android:layout_width="15dp"
                         android:layout_height="15dp"
@@ -105,9 +93,9 @@
                         android:layout_margin="5dp"
                         android:layout_marginEnd="5dp"
                         android:layout_marginBottom="5dp"
+                        android:importantForAccessibility="no"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        android:importantForAccessibility="no"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
@@ -115,11 +103,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginStart="20dp"
-                        android:text="@string/favourite"
-                        android:textSize="20sp"
+                        android:text="@string/theme"
+                        android:textSize="25sp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/favourite_icon"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
@@ -140,18 +127,6 @@
                     android:layout_marginBottom="10dp">
 
                     <ImageView
-                        android:id="@+id/logout_icon"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_gravity="start"
-                        android:layout_margin="5dp"
-                        android:layout_marginStart="30dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        android:importantForAccessibility="no"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <ImageView
                         android:id="@+id/logout_open_icon"
                         android:layout_width="15dp"
                         android:layout_height="15dp"
@@ -159,9 +134,9 @@
                         android:layout_margin="5dp"
                         android:layout_marginEnd="5dp"
                         android:layout_marginBottom="5dp"
+                        android:importantForAccessibility="no"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        android:importantForAccessibility="no"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
@@ -169,69 +144,68 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginStart="20dp"
-                        android:text="@string/log_out"
-                        android:textSize="20sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/logout_icon"
-                        app:layout_constraintTop_toTopOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/delete_accountId"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:orientation="vertical">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginBottom="10dp">
-
-                    <ImageView
-                        android:id="@+id/delete_icon"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_gravity="start"
-                        android:layout_margin="5dp"
-                        android:layout_marginStart="30dp"
+                        android:text="AboutUs"
+                        android:textSize="25sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        android:importantForAccessibility="no"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <ImageView
-                        android:id="@+id/delete_open_icon"
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
-                        android:layout_gravity="end"
-                        android:layout_margin="5dp"
-                        android:layout_marginEnd="5dp"
-                        android:layout_marginBottom="5dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        android:importantForAccessibility="no"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/delete"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="20dp"
-                        android:text="@string/delete_account"
-                        android:textSize="20sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/delete_icon"
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
+
+            <!--            <LinearLayout-->
+            <!--                android:id="@+id/delete_accountId"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="10dp"-->
+            <!--                android:layout_marginBottom="10dp"-->
+            <!--                android:orientation="vertical">-->
+
+            <!--                <androidx.constraintlayout.widget.ConstraintLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_marginStart="20dp"-->
+            <!--                    android:layout_marginTop="10dp"-->
+            <!--                    android:layout_marginEnd="20dp"-->
+            <!--                    android:layout_marginBottom="10dp">-->
+
+            <!--                    <ImageView-->
+            <!--                        android:id="@+id/delete_icon"-->
+            <!--                        android:layout_width="20dp"-->
+            <!--                        android:layout_height="20dp"-->
+            <!--                        android:layout_gravity="start"-->
+            <!--                        android:layout_margin="5dp"-->
+            <!--                        android:layout_marginStart="30dp"-->
+            <!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                        app:layout_constraintStart_toStartOf="parent"-->
+            <!--                        android:importantForAccessibility="no"-->
+            <!--                        app:layout_constraintTop_toTopOf="parent" />-->
+
+            <!--                    <ImageView-->
+            <!--                        android:id="@+id/delete_open_icon"-->
+            <!--                        android:layout_width="15dp"-->
+            <!--                        android:layout_height="15dp"-->
+            <!--                        android:layout_gravity="end"-->
+            <!--                        android:layout_margin="5dp"-->
+            <!--                        android:layout_marginEnd="5dp"-->
+            <!--                        android:layout_marginBottom="5dp"-->
+            <!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                        app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                        android:importantForAccessibility="no"-->
+            <!--                        app:layout_constraintTop_toTopOf="parent" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:id="@+id/delete"-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_gravity="center"-->
+            <!--                        android:layout_marginStart="20dp"-->
+            <!--                        android:text="@string/delete_account"-->
+            <!--                        android:textSize="20sp"-->
+            <!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                        app:layout_constraintStart_toEndOf="@+id/delete_icon"-->
+            <!--                        app:layout_constraintTop_toTopOf="parent" />-->
+            <!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
+            <!--            </LinearLayout>-->
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
