@@ -1,5 +1,6 @@
 package DataBaseHandling;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -66,7 +67,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         try (Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME, null)) {
             while (cursor.moveToNext()) {
-                FetchDataModal fetchDataModal = new FetchDataModal(
+                @SuppressLint("Range") FetchDataModal fetchDataModal = new FetchDataModal(
                         cursor.getString(cursor.getColumnIndex(KEY_FirstName)),
                         cursor.getString(cursor.getColumnIndex(KEY_Lastname)),
                         cursor.getString(cursor.getColumnIndex(KEY_Email)),
